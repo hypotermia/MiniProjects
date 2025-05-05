@@ -34,6 +34,7 @@ TotalPayment decimal(18,2) not null,
 CreatedDate datetime not null
 )
 
+go 
 
 Create View DailyReport As
 Select c.ProductsName,sum(a.TotalPayment) as totalDaily from TrxServices.dbo.Reporting a 

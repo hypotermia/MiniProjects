@@ -150,3 +150,6 @@ E:\LearnProject\MiniProjects\MiniProjects.Tests\obj\Debug\net6.0\refint\MiniProj
 E:\LearnProject\MiniProjects\MiniProjects.Tests\obj\Debug\net6.0\MiniProjects.Tests.pdb
 E:\LearnProject\MiniProjects\MiniProjects.Tests\obj\Debug\net6.0\MiniProjects.Tests.genruntimeconfig.cache
 E:\LearnProject\MiniProjects\MiniProjects.Tests\obj\Debug\net6.0\ref\MiniProjects.Tests.dll
+D:\NewProject\MiniProjects.Tests\obj\Debug\net6.0\MiniProjects.Tests.dll
+D:\NewProject\MiniProjects.Tests\obj\Debug\net6.0\refint\MiniProjects.Tests.dll
+D:\NewProject\MiniProjects.Tests\obj\Debug\net6.0\MiniProjects.Tests.pdb

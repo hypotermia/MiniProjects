@@ -9,79 +9,79 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebFrontEnd
 build_property.RootNamespace = WebFrontEnd
-build_property.ProjectDir = E:\LearnProject\MiniProjects\WebFrontEnd\
+build_property.ProjectDir = D:\NewProject\WebFrontEnd\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\LearnProject\MiniProjects\WebFrontEnd
+build_property.MSBuildProjectDirectory = D:\NewProject\WebFrontEnd
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Home/Index.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Home/Privacy.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Product/Create.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Product/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Product/Delete.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Product/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Product/Edit.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Product/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Product/Index.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Report/DailyReport.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Report/DailyReport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XERhaWx5UmVwb3J0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Report/MonthlyReport.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Report/MonthlyReport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XE1vbnRobHlSZXBvcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Report/YearlyReport.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Report/YearlyReport.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XFllYXJseVJlcG9ydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Shared/Error.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Transaction/Create.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Transaction/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Transaction/Detail.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Transaction/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Transaction/Index.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Transaction/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/_ViewImports.cshtml]
+[D:/NewProject/WebFrontEnd/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/_ViewStart.cshtml]
+[D:/NewProject/WebFrontEnd/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/LearnProject/MiniProjects/WebFrontEnd/Views/Shared/_Layout.cshtml]
+[D:/NewProject/WebFrontEnd/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-tuwmho5jzl
