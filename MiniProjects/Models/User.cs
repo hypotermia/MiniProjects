@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 namespace MiniProjects.Models;
 
-public partial class Product
+public partial class User
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
 
-    public string ProductsName { get; set; }
+    public string Names { get; set; }
 
-    public decimal ProductsPrices { get; set; }
+    public string Passwords { get; set; }
 
-    public int Quantity { get; set; }
+    public DateTime CreatedDate { get; set; }
 }

@@ -1,0 +1,44 @@
+﻿@model WebFrontEnd.Models.DetailTransaction
+
+@{
+    ViewBag.Title = "Transaction Details";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">📄 Transaction Details</h2>
+
+    @if (Model != null)
+    {
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Transaction ID</dt>
+                    <dd class="col-sm-9">@Model.Id</dd>
+
+                    <dt class="col-sm-3">Product Name</dt>
+                    <dd class="col-sm-9">@Model.ProductsName</dd>
+
+                    <dt class="col-sm-3">Quantity</dt>
+                    <dd class="col-sm-9">@Model.Quantity</dd>
+
+                    <dt class="col-sm-3">Total Per Transaction</dt>
+                    <dd class="col-sm-9">@Model.TotalPerTrx</dd>
+
+                    <dt class="col-sm-3">Created Date</dt>
+                    <dd class="col-sm-9">@Model.CreatedDate.ToString("dd MMM yyyy HH:mm")</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a href="@Url.Action("Index", "Transaction")" class="btn btn-secondary">⬅️ Back to List</a>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            🚫 Transaction not found.
+        </div>
+        <a href="@Url.Action("Index", "Transaction")" class="btn btn-secondary mt-2">⬅️ Back to List</a>
+    }
+</div>

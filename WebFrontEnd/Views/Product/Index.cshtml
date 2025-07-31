@@ -1,30 +1,31 @@
 ﻿@model IEnumerable<WebFrontEnd.Models.Product>
 
-<h2>Products</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<h2 class="mb-4 text-dark">Product List</h2>
+
+    <table class="table table-bordered table-striped table-hover bg-white bg-opacity-75 shadow-sm rounded">
+        <thead class="table-dark">
             <tr>
-                <td>@item.ProductsName</td>
-                <td>@item.ProductsPrices</td>
-                <td>@item.quantity</td>
-                <td>
-                    <a href="@Url.Action("Edit", "Product", new { id = item.Id })">Edit</a> |
-                    <a href="@Url.Action("Delete", "Product", new { id = item.Id })">Delete</a>
-                </td>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th style="width: 150px;">Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ProductsName</td>
+                    <td>@item.ProductsPrices.ToString("C")</td>
+                    <td>@item.quantity</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Product", new { id = item.Id })" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="@Url.Action("Delete", "Product", new { id = item.Id })" class="btn btn-sm btn-danger ms-1">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-<a href="@Url.Action("Create", "Product")" class="btn btn-primary">Add New Product</a>
+    <a href="@Url.Action("Create", "Product")" class="btn btn-success">➕ Add New Product</a>

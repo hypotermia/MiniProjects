@@ -43,8 +43,8 @@ namespace WebFrontEnd.Controllers
         public async Task<ActionResult> Create()
         {
             var products = await GetProducts();
-            ViewBag.Products = new SelectList(products, "Id", "ProductsName");
-            var prices = await GetProducts();
+            ViewBag.Products = products;
+            //var prices = await GetProducts();
             
             return View();
         }
@@ -83,7 +83,7 @@ namespace WebFrontEnd.Controllers
 
         public async Task<ActionResult> Details(Guid uId)
         {
-            var response = await _httpClient.GetAsync($"GetById?uId={uId}");
+            var response = await _httpClient.GetAsync($"api/Transaction/GetById?uId={uId}");
             var result = JsonConvert.DeserializeObject<ApiResponseObj>(await response.Content.ReadAsStringAsync());
 
             if (result.Status)

@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var hideHeader = ViewBag.HideHeader != null && (bool)ViewBag.HideHeader;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -7,6 +10,36 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebFrontEnd.styles.css" asp-append-version="true" />
+    <style>
+        body {
+            background-image: url('/images/bg-login.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .card, .container, .content-wrapper {
+            background-color: rgba(255, 255, 255, 0.85); /* agar tetap terbaca */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .transparent-card {
+            background-color: rgba(255, 255, 255, 0.85); /* putih dengan transparansi */
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-card {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -25,24 +58,37 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+
+                        @if (hideHeader)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Transaction" asp-action="Index">Transaction</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="reportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Report
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="reportDropdown">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="DailyReport">Daily Report</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="MonthlyReport">Monthly Report</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="YearlyReport">Yearly Report</a></li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+
+                    <!-- Navbar kanan: Login -->
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Transaction" asp-action="Index">Transaction</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="reportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Report
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="reportDropdown">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="DailyReport">Daily Report</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="MonthlyReport">Monthly Report</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="YearlyReport">Yearly Report</a></li>
-                            </ul>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
                         </li>
                     </ul>
                 </div>
+
             </div>
         </nav>
     </header>

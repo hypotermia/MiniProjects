@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "WebFrontEnd\\WebFrontEnd.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "MiniProjects\\MiniProjects.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "TrxServices\\TrxServices.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

@@ -51,6 +51,7 @@ namespace TrxServices.Repository
             return _trx.Select(transaction => new DetailTransaction
             {
                 Id = transaction.Id,
+                ProductId = transaction.ProductId,
                 ProductsName = transaction.ProductsName,
                 TotalPerTrx = transaction.TotalPerTrx,
                 Quantity = transaction.Quantity,
@@ -71,6 +72,7 @@ namespace TrxServices.Repository
             return new DetailTransaction
             {
                 Id = trx.Id,
+                ProductId = trx.ProductId,
                 ProductsName = trx.ProductsName,
                 TotalPerTrx = trx.TotalPerTrx,
                 Quantity = trx.Quantity,

@@ -4,38 +4,50 @@
     ViewBag.Title = "Transaction Index";
 }
 
-<h2>Transaction Index</h2>
 
-<p>@TempData["Message"]</p>
-<p style="color: red;">@TempData["ErrorMessage"]</p>
+    <h2 class="mb-4">📋 Transaction List</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Transaction Id</th>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Total Per Transaction</th>
-            <th>Created Date</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var transaction in Model)
-        {
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">@TempData["Message"]</div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+
+    <table class="table table-bordered table-striped table-hover shadow-sm">
+        <thead class="table-dark">
             <tr>
-                <td>@transaction.Id</td>
-                <td>@transaction.ProductsName</td>
-                <td>@transaction.Quantity</td>
-                <td>@transaction.TotalPerTrx</td>
-                <td>@transaction.CreatedDate</td>
-                <td>
-                    @Html.ActionLink("Details", "Details", new { uId = transaction.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { uId = transaction.Id }, new { onclick = "return confirm('Are you sure you want to delete this transaction?');" })
-                </td>
+                <th>Transaction ID</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Total Per Transaction</th>
+                <th>Created Date</th>
+                <th class="text-center">Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var transaction in Model)
+            {
+                <tr>
+                    <td>@transaction.Id</td>
+                    <td>@transaction.ProductsName</td>
+                    <td>@transaction.Quantity</td>
+                    <td>@transaction.TotalPerTrx</td>
+                    <td>@transaction.CreatedDate.ToString("dd MMM yyyy HH:mm")</td>
+                    <td class="text-center">
+                        <a href="@Url.Action("Details", "Transaction", new { uId = transaction.Id })" class="btn btn-sm btn-info me-2">Details</a>
+                        <a href="@Url.Action("Delete", "Transaction", new { uId = transaction.Id })"
+                           class="btn btn-sm btn-danger"
+                           onclick="return confirm('Are you sure you want to delete this transaction?');">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-@Html.ActionLink("Create New Transaction", "Create")
+    <a href="@Url.Action("Create", "Transaction")" class="btn btn-primary mt-3">➕ Create New Transaction</a>

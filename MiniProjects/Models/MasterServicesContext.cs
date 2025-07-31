@@ -3,46 +3,56 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace MiniProjects.Models
+namespace MiniProjects.Models;
+
+public partial class MasterServicesContext : DbContext
 {
-    public partial class MasterServicesContext : DbContext
+    public MasterServicesContext(DbContextOptions<MasterServicesContext> options)
+        : base(options)
     {
-        public MasterServicesContext()
-        {
-        }
-
-        public MasterServicesContext(DbContextOptions<MasterServicesContext> options)
-            : base(options)
-        {
-        }
-
-        public virtual DbSet<Product> Products { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Product>(entity =>
-            {
-                entity.ToTable("products");
-
-                entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("id");
-
-                entity.Property(e => e.ProductsName)
-                    .IsRequired()
-                    .HasMaxLength(100)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.ProductsPrices).HasColumnType("decimal(18, 2)");
-
-                entity.Property(e => e.Quantity).HasColumnName("quantity");
-            });
-
-            OnModelCreatingPartial(modelBuilder);
-        }
-
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
+
+    public virtual DbSet<Product> Products { get; set; }
+
+    public virtual DbSet<User> Users { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Product>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__products__3213E83FC43E6729");
+
+            entity.ToTable("products");
+
+            entity.Property(e => e.Id)
+                .ValueGeneratedNever()
+                .HasColumnName("id");
+            entity.Property(e => e.ProductsName)
+                .IsRequired()
+                .HasMaxLength(100)
+                .IsUnicode(false);
+            entity.Property(e => e.ProductsPrices).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.Quantity).HasColumnName("quantity");
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC0749C1B6B4");
+
+            entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+            entity.Property(e => e.Names)
+                .IsRequired()
+                .HasMaxLength(20)
+                .IsUnicode(false);
+            entity.Property(e => e.Passwords)
+                .IsRequired()
+                .HasMaxLength(255)
+                .IsUnicode(false);
+        });
+
+        OnModelCreatingPartial(modelBuilder);
+    }
+
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
