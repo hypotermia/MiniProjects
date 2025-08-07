@@ -1,6 +1,9 @@
-﻿@{
-    var hideHeader = ViewBag.HideHeader != null && (bool)ViewBag.HideHeader;
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    bool isLoggedIn = HttpContextAccessor.HttpContext.Session.GetString("IsLoggedIn") == "true";
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +15,7 @@
     <link rel="stylesheet" href="~/WebFrontEnd.styles.css" asp-append-version="true" />
     <style>
         body {
-            background-image: url('/images/bg-login.jpg');
+            background-image: url('/images/coffe-cam.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -21,91 +24,81 @@
             margin: 0;
         }
 
-        .card, .container, .content-wrapper {
-            background-color: rgba(255, 255, 255, 0.85); /* agar tetap terbaca */
+        .sidebar {
+            width: 250px;
+            min-height: 100vh;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding-top: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            border-right: 1px solid #ddd;
+        }
+
+            .sidebar a {
+                display: block;
+                padding: 10px 20px;
+                color: #333;
+                text-decoration: none;
+            }
+
+                .sidebar a:hover {
+                    background-color: #007bff;
+                    color: white;
+                }
+
+        .content {
+            margin-left: 250px;
             padding: 20px;
-            border-radius: 10px;
-        }
-
-        .transparent-card {
-            background-color: rgba(255, 255, 255, 0.85); /* putih dengan transparansi */
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .login-card {
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebFrontEnd</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+    <div class="sidebar">
+        <h4 class="text-center">WebFrontEnd</h4>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="Home" asp-action="Privacy">Privacy</a>
 
-                        @if (hideHeader)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Transaction" asp-action="Index">Transaction</a>
-                            </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-dark" href="#" id="reportDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Report
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="reportDropdown">
-                                    <li><a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="DailyReport">Daily Report</a></li>
-                                    <li><a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="MonthlyReport">Monthly Report</a></li>
-                                    <li><a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="YearlyReport">Yearly Report</a></li>
-                                </ul>
-                            </li>
-                        }
-                    </ul>
-
-                    <!-- Navbar kanan: Login -->
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
-                        </li>
-                    </ul>
-                </div>
-
+        @if (isLoggedIn)
+        {
+            <a asp-controller="Product" asp-action="Index">Products</a>
+            <a asp-controller="Transaction" asp-action="Index">Transaction</a>
+            <div class="dropdown">
+                <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown">Report</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" asp-controller="Report" asp-action="DailyReport">Daily Report</a></li>
+                    <li><a class="dropdown-item" asp-controller="Report" asp-action="MonthlyReport">Monthly Report</a></li>
+                    <li><a class="dropdown-item" asp-controller="Report" asp-action="YearlyReport">Yearly Report</a></li>
+                </ul>
             </div>
-        </nav>
-    </header>
-    <div class="container">
+        }
+
+        <hr />
+
+        @if (!isLoggedIn)
+        {
+            <a asp-controller="Home" asp-action="Login">Login</a>
+        }
+        else
+        {
+            <a asp-controller="Home" asp-action="Logout">Logout</a>
+        }
+    </div>
+
+    <div class="content">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+
+        <footer class="border-top footer text-muted mt-5">
+            <div class="container">
+                &copy; 2024 - WebFrontEnd - <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - WebFrontEnd - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

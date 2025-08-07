@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using System;
@@ -11,7 +12,8 @@ using WebFrontEnd.Models;
 
 namespace WebFrontEnd.Controllers
 {
-    public class TransactionController : Controller
+    
+    public class TransactionController : BaseController
     {
         private readonly HttpClient _httpClient;
 

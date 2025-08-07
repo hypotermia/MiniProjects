@@ -10,6 +10,8 @@ using static MiniProjects.Repository.WebApiHelper;
 
 namespace MiniProjects.Controllers
 {
+    [Route("api/[controller]/[action]")]
+    [ApiController]
     public class AuthController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -29,17 +31,31 @@ namespace MiniProjects.Controllers
 
             return null;
         }
-        [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginCommand command)
+        [HttpPost]
+        public async Task<ApiResponseObj> Login([FromBody] LoginCommand command)
         {
             try
             {
                 var token = await _mediator.Send(command);
-                return Ok(new { token });
+                return new ApiResponseObj
+                {
+                    Success = true,
+                    message = "Success Login!!",
+                    transactionId = "",
+                    data = token,
+                    status = true
+                }; 
             }
             catch (UnauthorizedAccessException ex)
             {
-                return Unauthorized(new { message = ex.Message });
+                return new ApiResponseObj
+                {
+                    Success = true,
+                    message = ex.Message,
+                    transactionId = "",
+                    data = null,
+                    status = false
+                };
             }
         }
         private string GenerateJwtToken(User user)

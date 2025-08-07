@@ -33,6 +33,7 @@ namespace MiniProjects.Controllers
                 {
                     return new ApiResponseObj
                     {
+                        Success = true,
                         message = "Validation failed",
                         transactionId = "",
                         data = validationResult.Errors,
@@ -64,6 +65,7 @@ namespace MiniProjects.Controllers
 
                 return new ApiResponseObj
                 {
+                    Success = true,
                     message = "Success add/update Data!",
                     transactionId = "",
                     data = null,
@@ -74,6 +76,7 @@ namespace MiniProjects.Controllers
             {
                 return new ApiResponseObj
                 {
+                    Success = true,
                     message = ex.Message,
                     transactionId = "",
                     data = null,
@@ -92,6 +95,7 @@ namespace MiniProjects.Controllers
                 {
                     return new ApiResponseObj
                     {
+                        Success = true,
                         message = "Data tidak ditemukan!",
                         transactionId = null,
                         data = null,
@@ -103,6 +107,7 @@ namespace MiniProjects.Controllers
                     await _mediator.Send(new DeleteProductCommand { Id = uId });
                     return new ApiResponseObj
                     {
+                        Success = true,
                         message = "Success Menghapus data!!",
                         transactionId = uId.ToString(),
                         data = null,
@@ -114,6 +119,7 @@ namespace MiniProjects.Controllers
             {
                 return new ApiResponseObj
                 {
+                    Success = true,
                     message = ex.Message,
                     transactionId = "",
                     data = null,
@@ -132,6 +138,7 @@ namespace MiniProjects.Controllers
                 {
                     return new ApiResponseObj
                     {
+                        Success = true,
                         message = "Data tidak ditemukan!",
                         data = null,
                         transactionId= null,   
@@ -142,6 +149,7 @@ namespace MiniProjects.Controllers
                 {
                     return new ApiResponseObj
                     {
+                        Success = true,
                         message = "Sukses Menampilkan Data!",
                         data = checkId,
                         transactionId = checkId.Id.ToString(),
@@ -153,6 +161,7 @@ namespace MiniProjects.Controllers
             {
                 return new ApiResponseObj
                 {
+                    Success = true,
                     message = ex.Message,
                     data = null,
                     transactionId = null,
@@ -170,6 +179,7 @@ namespace MiniProjects.Controllers
                 {
                     return new ApiResponseObj
                     {
+                        Success = true,
                         message = "Data kosong mohon isi data terlebih dahulu!",
                         data = null,
                         transactionId = null,
@@ -181,6 +191,7 @@ namespace MiniProjects.Controllers
 
                     return new ApiResponseObj
                     {
+                        Success = true,
                         message = "Sukses Menampilkan Data!",
                         data = checkId,
                         transactionId = null,
@@ -192,6 +203,7 @@ namespace MiniProjects.Controllers
             {
                 return new ApiResponseObj
                 {
+                    Success = true,
                     message = ex.Message,
                     data = null,
                     transactionId = null,

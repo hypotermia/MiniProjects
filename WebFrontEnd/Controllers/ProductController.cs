@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,8 @@ using WebFrontEnd.Models;
 
 namespace WebFrontEnd.Controllers
 {
-    public class ProductController : Controller
+    
+    public class ProductController : BaseController
     {
         private readonly HttpClient _httpClient;
 
@@ -21,6 +23,12 @@ namespace WebFrontEnd.Controllers
 
         public async Task<IActionResult> Index()
         {
+            var isLoggedIn = HttpContext.Session.GetString("IsLoggedIn");
+            if (isLoggedIn != "true")
+            {
+                return RedirectToAction("Login", "Home");
+            }
+
             var response = await _httpClient.GetStringAsync("api/Products/GetAllProducts");
             var result = JsonConvert.DeserializeObject<ApiResponseObj>(response);
 

@@ -1,4 +1,4 @@
-﻿@model WebFrontEnd.Controllers.LoginViewModel
+﻿@model WebFrontEnd.Models.LoginViewModel
 @{
     ViewData["Title"] = "Login";
 }
@@ -12,7 +12,7 @@
 
 <style>
     body {
-        background: url('/images/bg-login.jpg') no-repeat center center fixed;
+        background: url('/images/coffe-cam.jpg') no-repeat center center fixed;
         background-size: cover;
         min-height: 100vh;
         margin: 0;
@@ -54,9 +54,9 @@
                 @using (Html.BeginForm())
                 {
                     <div class="form-group mb-3">
-                        @Html.LabelFor(m => m.Email, new { @class = "form-label" })
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        @Html.LabelFor(m => m.names, new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.names, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.names, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group mb-3">

@@ -7,7 +7,7 @@ namespace MiniProjects.Validators
     {
         public LoginValidator()
         {
-            RuleFor(x => x.names).NotEmpty().EmailAddress();
+            RuleFor(x => x.names).NotEmpty();
             RuleFor(x => x.Password).NotEmpty().MinimumLength(6);
         }
     }
